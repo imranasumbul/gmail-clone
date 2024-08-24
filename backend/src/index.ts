@@ -1,10 +1,10 @@
-type abc = {
-    name: string,
-    age: number
-}
+import express  from "express";
+import rootRouter from "./routes";
+import cors from "cors";
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-function sth({name, age} : abc) : any{
-    console.log(`The age of ${name} is ${age}`)
-}
-
-sth({name: "ananya", age: 55});
+const port = 500;
+app.use("/api/v1", rootRouter);
+app.listen(port);

@@ -30,5 +30,5 @@ model EmailSchema {
   body String?
   date DateTime
   starred Boolean @default(false)
-  
+  sent Boolean @default(false)
 }

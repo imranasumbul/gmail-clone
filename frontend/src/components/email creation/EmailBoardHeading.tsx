@@ -15,7 +15,9 @@ const EmailBoardHeading = function(){
     const setComposeMail = useSetRecoilState(composeMail);
 
     const removeMailBoard = function(){
-        setComposeMail(false);
+        setComposeMail(function (x){
+            return x = false;
+        });
     }
     const expandMailBoard = function(){
         setIsMailBoardBig(true);
