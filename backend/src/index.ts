@@ -5,6 +5,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 500;
+const port = 5000;
 app.use("/api/v1", rootRouter);
 app.listen(port);
