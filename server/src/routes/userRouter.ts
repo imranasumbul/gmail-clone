@@ -15,11 +15,7 @@ userRouter.get("/sentemails", async function (req, res){
     }
     console.log(senderEmail);
     const allSentEmails = await getAllSentMails(senderEmail.toString());
-    if(!allSentEmails){
-        return res.json({
-            msg: `No sent mails yet`
-        })
-    }
+    
     res.status(200).json({
         msg: allSentEmails
     })
@@ -65,11 +61,7 @@ userRouter.get("/receivedemails", async function (req, res){
     }
     console.log(receiverEmail);
     const allReceivedEmails = await getInboxMails(receiverEmail.toString());
-    if(!allReceivedEmails){
-        return res.json({
-            msg: `No received mails yet`
-        })
-    }
+    
     res.status(200).json({
         msg: allReceivedEmails
     })
