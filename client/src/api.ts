@@ -1,1 +1,1 @@
-export const api: string = "https://gmail-clone-l4c5.onrender.com/api/v1/";
+export const api: string = "https://gmail-clone-1-6tfz.onrender.com/api/v1/";

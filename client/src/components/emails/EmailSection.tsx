@@ -1,11 +1,11 @@
 import React from "react";
 import EachMail from "./EachMail"
-import {seeSentMails} from "../../store/atoms/seeSentMails"
-import { useRecoilValue } from "recoil";
+// import {seeSentMails} from "../../store/atoms/seeSentMails"
+// import { useRecoilValue } from "recoil";
 
 
 const EmailSection = function (){
-    const seeSentMailsBool = useRecoilValue(seeSentMails);
+    
     
     return (
         <>

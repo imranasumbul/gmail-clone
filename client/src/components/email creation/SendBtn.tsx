@@ -1,6 +1,6 @@
 import React from "react";
 import {  sendMailBtn } from "../../store/atoms/sendMail";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { sendingMail } from "../../store/atoms/sendingMail";
 import axios from "axios"
 import { composeMail } from "../../store/atoms/composeMailBtn";
@@ -8,7 +8,7 @@ import { userEmail } from "../../store/atoms/userEmail";
 
 
 const SendEmailBtn = function (){
-    const  [sendMailBool, setSendMailBool] = useRecoilState(sendMailBtn);
+    const   setSendMailBool = useSetRecoilState(sendMailBtn);
     const sendingMailInfo = useRecoilValue(sendingMail);
     const setEemailBoardVisibility = useSetRecoilState(composeMail);
     const senderEmail = useRecoilValue(userEmail);
