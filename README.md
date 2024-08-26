@@ -32,3 +32,28 @@ Clone the repository and navigate into the project directory:
 ```bash
 git clone https://github.com/imranasumbul/gmail-clone.git
 cd gmail-clone
+
+```
+
+## Backend Setup
+
+- Navigate to the server directory:
+
+```bash
+cd server
+```
+
+- Install all the dependencies
+
+```bash
+npm install
+```
+- If you haven't set up your database, you'll need to configure Prisma by editing the prisma/schema.prisma file and setting your database URL in an .env file.
+
+- Initialize prisma 
+
+```bash
+npx prisma init
+```
+
+ 
