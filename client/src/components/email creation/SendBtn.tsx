@@ -34,9 +34,9 @@ const SendEmailBtn = function (){
     return (
         <>
         <button onClick={async function(e: React.MouseEvent<HTMLButtonElement>){
-            setSendMailBool((a) => a = true);
+            setSendMailBool(true);
             e.preventDefault();
-            setEemailBoardVisibility((a) => a = false)
+            setEemailBoardVisibility(false)
             await sendMail();
             
         }} className=" absolute bottom-2 left-4 text-lg shadow-md py-1 px-4 font-semibold text-white rounded-3xl bg-blue-600">
