@@ -39,13 +39,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { userEmail } from "../../store/atoms/userEmail";
-
+import { api } from "../../api";
 const SentSidebar = function() {
     const senderEmail = useRecoilValue(userEmail);
     const navigate = useNavigate();
 
     const handleSentClick = async () => {
-        const res = await axios.get("http://localhost:5000/api/v1/user/sentemails", {
+        const res = await axios.get(`${api}user/sentemails`, {
             headers: {
                 Authorization: senderEmail
             }
