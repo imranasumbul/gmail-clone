@@ -1,40 +1,34 @@
 # Gmail Clone
 
- It is built using React, Vite, TypeScript, and Tailwind CSS. This guide will help you set up the project locally, run it in development mode, and build it for production.
+This is a full-stack Gmail clone application built using React, Vite, TypeScript, Tailwind CSS on the frontend, and Express, Prisma, and TypeScript on the backend.
 
 ## Table of Contents
 
+
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Development](#development)
+- [Backend Setup](#backend-setup)
+- [Frontend Setup](#frontend-setup)
+- [Running the Application](#running-the-application)
 - [Building for Production](#building-for-production)
+- [Technologies Used](#technologies-used)
+- [License](#license)
 
-- [Previewing the Production Build](#previewing-the-production-build)
+
 
 ## Prerequisites
 
-Before you begin, make sure you have the following installed:
+Before you begin, ensure you have the following installed:
 
 - **Node.js**: Version 14 or later
 - **npm**: Comes with Node.js
+- **Prisma**: Installed globally (optional, for managing the database)
+
 
 ## Installation
 
-To set up the project locally, follow these steps:
+Clone the repository and navigate into the project directory:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/imranasumbul/gmail-clone.git
-   cd gmail-clone/frontend
-
-2. Install dependencies
-    npm install
-
-
-## Development
-
-To start the development server on frontend, run the command 
-    npm run dev
-
-
+```bash
+git clone https://github.com/imranasumbul/gmail-clone.git
+cd gmail-clone
