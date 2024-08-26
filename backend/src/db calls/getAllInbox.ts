@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 const prisma : PrismaClient = new PrismaClient();
 
-async function getInboxMails(){
+async function getInboxMails(receiverMail : string){
     try{
         const allInboxMails = await prisma.emailSchema.findMany({
             where :{
-                sent: false
+                to: receiverMail
             }
         })
         return allInboxMails;
