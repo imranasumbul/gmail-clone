@@ -4,11 +4,12 @@ import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import { useRecoilValue } from "recoil";
 import { sidebarVisibility } from "../../store/atoms/sidebarVisibility";
-import EmailSection from "../emails/EmailSection";
+
 import { composeMail } from "../../store/atoms/composeMailBtn";
 import EmailBoard from "../email creation/EmailBoard";
+import SentEmailsSection from "../emails/SentEmailsSection";
 
-const MainPage = function (){
+const SentEmailsPage = function (){
     const writeEmail = useRecoilValue(composeMail);
     const isSidebarVisible = useRecoilValue(sidebarVisibility);
     
@@ -33,7 +34,7 @@ const MainPage = function (){
                         isSidebarVisible ? 'w-5/6 ml-[16.67%]' : 'w-full'
                     } flex-1`}
                 >
-                    <EmailSection />
+                    <SentEmailsSection />
                 </div>
             </div>
 
@@ -43,4 +44,4 @@ const MainPage = function (){
     )
 }
 
-export default React.memo(MainPage);
+export default React.memo(SentEmailsPage);

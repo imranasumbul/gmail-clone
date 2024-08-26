@@ -9,7 +9,7 @@ import ComposeMail from "./ComposeMail";
 const Sidebar = function(){
     return (
         <>
-        <div className="flex flex-col bg-slate-50 min-h-screen  gap-3 items-center w-[100%]" > 
+        <div className="flex flex-col rounded-xl bg-slate-100 min-h-screen p-4 gap-3 items-center w-[100%]" > 
             <ComposeMail/>
             <InboxSidebar />
             <StarredSidebar/>

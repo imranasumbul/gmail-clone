@@ -1,7 +1,7 @@
 import  express  from "express";
 import getAllSentMails from "../db calls/getAllSentMails";
 import postSentMails from "../db calls/postSentMails";
-
+import transporter from "../send-mail/index"
 
 
 const userRouter = express.Router();
@@ -15,21 +15,43 @@ userRouter.get("/sentemails", async function (re, res){
     }
 })
 
-userRouter.post("/sentemails", async function (req, res){
+
+
+userRouter.post("/send-mail", async function(req, res){
     try{
-        const to = req.body.to;
-        const from = req.body.from;
-        const subject = req.body.subject;
-        const body = req.body.body;
-        const date = req.body.date;
+        const { to, from, subject, body, date} = req.body;
+        const mailOptions = {
+            from,
+            to,
+            subject,
+            text : body
+            
+        };
         await postSentMails({to, from, subject, body, date});
-        return res.status(200).json({
-            msg: `email sent successfully`
-        })
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).json({
+                    msg: 'Error sending email'
+                });
+            }
+            console.log('Message sent:', info.response);
+            res.status(200).json({
+                msg: 'Email sent successfully'
+            });
+        });
+        
+        
     }catch(e){
         console.log(`Error ${e}`);
-        
     }
-    
 })
 export default userRouter;
+
+
+
+
+
+
+
+

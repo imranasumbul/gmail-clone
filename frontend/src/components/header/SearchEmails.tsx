@@ -11,7 +11,7 @@ function searchEmails(){
     <div className="relative w-[50%]">
         <input type="text" onChange={function(e){
             setInputEmail(e.target.value)
-        }} placeholder="Search mail" className=" bg-blue-50 focus:bg-white focus:shadow-lg focus:border-none focus:outline-none w-[100%] px-12 py-3 rounded-3xl"/>
+        }} placeholder="Search mail" className=" bg-blue-100 focus:bg-white focus:shadow-lg focus:border-none focus:outline-none w-[100%] px-12 py-3 rounded-3xl"/>
         <button onClick={function(){
             setSearchEmailButton(true);
         }} className="absolute left-0 top-3 mx-3 hover:bg-gray-300 rounded-xl p-2">
