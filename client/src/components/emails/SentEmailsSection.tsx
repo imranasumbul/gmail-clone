@@ -20,7 +20,7 @@ const SentMails = () => {
 
     return (
         <div>
-            {sentEmails.msg.length > 0 ? (
+            {sentEmails.msg ? (
                 sentEmails.msg.map((mail: mailResponse) => (
                     <EachMail
                         key={mail.id}

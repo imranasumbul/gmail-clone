@@ -5,6 +5,7 @@ import { sendingMail } from "../../store/atoms/sendingMail";
 import axios from "axios"
 import { composeMail } from "../../store/atoms/composeMailBtn";
 import { userEmail } from "../../store/atoms/userEmail";
+import { api } from "../../api";
 
 
 const SendEmailBtn = function (){
@@ -15,7 +16,7 @@ const SendEmailBtn = function (){
 
     const sendMail = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/v1/user/send-mail', {
+            const response = await axios.post(`${api}user/send-mail`, {
                 to: sendingMailInfo.to,
                 from: senderEmail,
                 subject: sendingMailInfo.subject,

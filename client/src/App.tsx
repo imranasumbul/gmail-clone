@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import InboxEmailsPage from "./components/main pages/InboxEmailsPage"
 function App() {
   localStorage.setItem("email", "86e46147-26e6-4716-a59f-aa947fa0e1e4@mailslurp.net");
-  const receiverMail = localStorage.getItem("email");
+  
 
   return (
     <>
