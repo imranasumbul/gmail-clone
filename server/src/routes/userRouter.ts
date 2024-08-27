@@ -38,7 +38,8 @@ userRouter.post("/send-mail", async function(req, res){
             if (error) {
                 console.error('Error sending email:', error);
                 return res.status(500).json({
-                    msg: 'Error sending email'
+                    msg: 'Error sending email',
+                    err: `${error}`
                 });
             }
             console.log('Message sent:', info.response);
