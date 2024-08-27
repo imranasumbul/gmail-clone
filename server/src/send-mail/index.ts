@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
     port: 2525,
     secure: false, // Set to true if using SSL
     auth: {
-        user: 'e6597262-595c-44d6-b6df-c6d3dc695d1f@mailslurp.net',
+        user: 'user-6d436e3e-1239-4c3b-bbe8-1fef2737283f@mailslurp.net',
         pass: 'I6AP9eUXA2HbP0pYkE2IgY8OuVbaKqUB' // Your actual password
     }
 })
