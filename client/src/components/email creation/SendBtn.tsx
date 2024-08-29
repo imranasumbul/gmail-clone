@@ -21,7 +21,7 @@ const SendEmailBtn = function (){
                 from: senderEmail,
                 subject: sendingMailInfo.subject,
                 body: sendingMailInfo.body,
-                date: new Date()
+                date: new Date().toISOString()
             });
 
             alert(response.data.msg);
