@@ -3,9 +3,12 @@ import MainPage from "./components/main pages/MainPage"
 import SentEmailsPage from "./components/main pages/SentEmailsPage"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import InboxEmailsPage from "./components/main pages/InboxEmailsPage"
+import { useMemo } from "react";
 function App() {
   localStorage.setItem("email", "86e46147-26e6-4716-a59f-aa947fa0e1e4@mailslurp.net");
-  
+  useMemo(() => {
+    alert("You are logged in as user-6d436e3e-1239-4c3b-bbe8-1fef2737283f@mailslurp.net. As of now, you cannot log in to other accounts.");
+  }, [])
 
   return (
     <>
