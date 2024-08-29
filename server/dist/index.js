@@ -11,4 +11,9 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 const port = 5000;
 app.use("/api/v1", routes_1.default);
+app.get("/", function (req, res) {
+    res.status(200).json({
+        msg: `You are connected to imrana's gmail clone's backend on render `
+    });
+});
 app.listen(port);

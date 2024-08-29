@@ -28,11 +28,6 @@ userRouter.get("/sentemails", function (req, res) {
         }
         console.log(senderEmail);
         const allSentEmails = yield (0, getAllSentMails_1.default)(senderEmail.toString());
-        if (!allSentEmails) {
-            return res.json({
-                msg: `No sent mails yet`
-            });
-        }
         res.status(200).json({
             msg: allSentEmails
         });
@@ -53,7 +48,8 @@ userRouter.post("/send-mail", function (req, res) {
                 if (error) {
                     console.error('Error sending email:', error);
                     return res.status(500).json({
-                        msg: 'Error sending email'
+                        msg: 'Error sending email',
+                        err: `${error}`
                     });
                 }
                 console.log('Message sent:', info.response);
@@ -77,11 +73,6 @@ userRouter.get("/receivedemails", function (req, res) {
         }
         console.log(receiverEmail);
         const allReceivedEmails = yield (0, getAllInbox_1.default)(receiverEmail.toString());
-        if (!allReceivedEmails) {
-            return res.json({
-                msg: `No received mails yet`
-            });
-        }
         res.status(200).json({
             msg: allReceivedEmails
         });
