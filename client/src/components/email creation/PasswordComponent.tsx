@@ -58,7 +58,7 @@ export default function PasswordComponent(){
                         }else{
                             alert("you cannot send email from this id because you are not authenticated")
                         }
-                        setIsPasswordCompVisible((v) => v = false)
+                        setIsPasswordCompVisible(false)
                         
                     }}>
                     Submit
