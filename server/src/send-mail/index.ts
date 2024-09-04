@@ -1,13 +1,16 @@
 import nodemailer from "nodemailer"
-
+const mailHost = process.env.SMTP_HOST
+const password = process.env.SMTP_PASS
+const smtpPort = Number(process.env.SMTP_PORT)
+const smtpUser = process.env.SMTP_USER
 
 const transporter = nodemailer.createTransport({
-    host: 'mxslurp.click',
-    port: 2525,
-    secure: false, // Set to true if using SSL
+    host: "smtp.gmail.com",
+    port: smtpPort,
+    secure: (smtpPort == 465), // Set to true if using SSL
     auth: {
-        user: 'user-6d436e3e-1239-4c3b-bbe8-1fef2737283f@mailslurp.net',
-        pass: 'I6AP9eUXA2HbP0pYkE2IgY8OuVbaKqUB' // Your actual password
+        user: smtpUser,
+        pass: password // Your actual password
     }
 })
 
