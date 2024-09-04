@@ -1,11 +1,10 @@
 import React from "react";
-import {  sendMailBtn } from "../../store/atoms/sendMail";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { sendingMail } from "../../store/atoms/sendingMail";
-import axios from "axios"
+
+import { useSetRecoilState } from "recoil";
+
 import { composeMail } from "../../store/atoms/composeMailBtn";
-import { userEmail } from "../../store/atoms/userEmail";
-import { api } from "../../api";
+
+
 import { passwordCompVisibility } from "../../store/atoms/passwordComp";
 
 

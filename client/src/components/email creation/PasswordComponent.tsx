@@ -3,7 +3,7 @@ import {  sendMailBtn } from "../../store/atoms/sendMail";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { sendingMail } from "../../store/atoms/sendingMail";
 import axios from "axios"
-import { composeMail } from "../../store/atoms/composeMailBtn";
+
 import { userEmail } from "../../store/atoms/userEmail";
 import { api } from "../../api";
 
