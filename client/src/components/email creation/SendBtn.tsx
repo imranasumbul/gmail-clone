@@ -6,40 +6,25 @@ import axios from "axios"
 import { composeMail } from "../../store/atoms/composeMailBtn";
 import { userEmail } from "../../store/atoms/userEmail";
 import { api } from "../../api";
+import { passwordCompVisibility } from "../../store/atoms/passwordComp";
 
 
 const SendEmailBtn = function (){
-    const   setSendMailBool = useSetRecoilState(sendMailBtn);
-    const sendingMailInfo = useRecoilValue(sendingMail);
+    // const   setSendMailBool = useSetRecoilState(sendMailBtn);
+    // const sendingMailInfo = useRecoilValue(sendingMail);
+    // const setEemailBoardVisibility = useSetRecoilState(composeMail);
+    // const senderEmail = useRecoilValue(userEmail);
+    const setIsPasswordCompVisible = useSetRecoilState(passwordCompVisibility);
     const setEemailBoardVisibility = useSetRecoilState(composeMail);
-    const senderEmail = useRecoilValue(userEmail);
-
-    const sendMail = async () => {
-        try {
-            const response = await axios.post(`${api}user/send-mail`, {
-                to: sendingMailInfo.to,
-                from: senderEmail,
-                subject: sendingMailInfo.subject,
-                body: sendingMailInfo.body,
-                date: new Date().toISOString()
-            });
-
-            alert(response.data.msg);
-            console.log(response.data.msg);
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert('Failed to send email');
-        }
-    };
+    
+    
 
     return (
         <>
-        <button onClick={async function(e: React.MouseEvent<HTMLButtonElement>){
-            setSendMailBool(true);
-            e.preventDefault();
-            setEemailBoardVisibility(false)
-            await sendMail();
+        <button onClick={async function(){
             
+            setIsPasswordCompVisible((v) => v = true);
+            setEemailBoardVisibility(false)
         }} className=" absolute bottom-2 left-4 text-lg shadow-md py-1 px-4 font-semibold text-white rounded-3xl bg-blue-600">
             Send
         </button>

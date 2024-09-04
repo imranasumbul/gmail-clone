@@ -12,7 +12,7 @@ const SubjectSection = function (){
                 ...sendingMailInfo,
                 subject: e.target.value
             })
-        }} className="w-[100%] flex-none h-12 p-2" name="emailSubject" id="emailSubject" placeholder="Subject">
+        }} className="w-[100%] focus:border-none flex-none h-12 p-2" name="emailSubject" id="emailSubject" placeholder="Subject">
 
         </textarea>
         </>

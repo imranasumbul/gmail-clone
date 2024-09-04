@@ -9,7 +9,7 @@ interface SendingMailState {
 export const sendingMail = atom<SendingMailState>({
     key: "emailSubject",
     default: {
-        from: "6597262-595c-44d6-b6df-c6d3dc695d1f@mailslurp.net",
+        from: "testimrana@gmail.com",
         to : "",
         subject: "",
         body: ""

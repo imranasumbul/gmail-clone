@@ -7,6 +7,7 @@ import { sidebarVisibility } from "../../store/atoms/sidebarVisibility";
 import EmailSection from "../emails/EmailSection";
 import { composeMail } from "../../store/atoms/composeMailBtn";
 import EmailBoard from "../email creation/EmailBoard";
+import PasswordBoard from "../email creation/PasswordBoard";
 
 const MainPage = function (){
     const writeEmail = useRecoilValue(composeMail);
@@ -38,6 +39,7 @@ const MainPage = function (){
             </div>
 
             {writeEmail && <EmailBoard />}
+            {<PasswordBoard />}
         </div>
         </>
     )
