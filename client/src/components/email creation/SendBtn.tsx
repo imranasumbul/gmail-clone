@@ -22,7 +22,7 @@ const SendEmailBtn = function (){
         <>
         <button onClick={async function(){
             
-            setIsPasswordCompVisible((v) => v = true);
+            setIsPasswordCompVisible(true);
             setEemailBoardVisibility(false)
         }} className=" absolute bottom-2 left-4 text-lg shadow-md py-1 px-4 font-semibold text-white rounded-3xl bg-blue-600">
             Send
