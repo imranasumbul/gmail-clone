@@ -15,6 +15,7 @@ const SentSidebar = function() {
                 Authorization: senderEmail
             }
         });
+        console.log(userEmail);
         navigate('/sentmails', { state: { sentEmails: res.data } });
     };
 

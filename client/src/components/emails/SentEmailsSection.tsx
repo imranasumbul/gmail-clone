@@ -16,6 +16,7 @@ interface mailResponse{
 const SentMails = () => {
     const location = useLocation();
     const sentEmails = location.state?.sentEmails || [];
+    console.log("hiii");
     console.log(sentEmails);
 
     return (
