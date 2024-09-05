@@ -29,7 +29,7 @@ export default function PasswordComponent(){
             console.log(response.data.msg);
         } catch (error) {
             console.error('Error sending email:', error);
-            alert('Failed to send email');
+            alert("Failed to send email. Please make sure you're sending email to correct credentials");
         }
     };
     const [pass, setPass] = useState("");
