@@ -26,6 +26,7 @@ const SentMails = () => {
                     <EachMail
                         key={mail.id}
                         to={mail.to}
+                        from="testimrana@gmail.com"
                         subject={mail.subject}
                         body={mail.body}
                         date={new Date(mail.date)} 

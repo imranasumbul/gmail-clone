@@ -23,6 +23,7 @@ const InboxMails = () => {
                     <EachMail
                         key={mail.id}
                         from={mail.from}
+                        to="testimrana@gmail.com"
                         subject={mail.subject}
                         body={mail.body}
                         date={new Date(mail.date)} // Parse the date properly
