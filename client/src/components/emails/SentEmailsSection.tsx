@@ -25,7 +25,7 @@ const SentMails = () => {
                 sentEmails.msg.map((mail: mailResponse) => (
                     <EachMail
                         key={mail.id}
-                        from={mail.from}
+                        to={mail.to}
                         subject={mail.subject}
                         body={mail.body}
                         date={new Date(mail.date)} 
