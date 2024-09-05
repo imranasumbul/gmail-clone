@@ -43,20 +43,22 @@ userRouter.post("/send-mail", function (req, res) {
                 subject,
                 text: body
             };
-            yield (0, postSentMails_1.default)({ to, from, subject, body, date });
-            index_1.default.sendMail(mailOptions, (error, info) => {
+            index_1.default.sendMail(mailOptions, (error, info) => __awaiter(this, void 0, void 0, function* () {
                 if (error) {
                     console.error('Error sending email:', error);
-                    return res.status(500).json({
+                    return res.status(400).json({
                         msg: 'Error sending email',
                         err: `${error}`
                     });
                 }
-                console.log('Message sent:', info.response);
-                res.status(200).json({
-                    msg: 'Email sent successfully'
-                });
-            });
+                else {
+                    console.log('Message sent:', info.response);
+                    yield (0, postSentMails_1.default)({ to, from, subject, body, date });
+                    res.status(200).json({
+                        msg: 'Email sent successfully'
+                    });
+                }
+            }));
         }
         catch (e) {
             console.log(`Error ${e}`);

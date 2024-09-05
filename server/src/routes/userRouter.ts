@@ -33,20 +33,24 @@ userRouter.post("/send-mail", async function(req, res){
             text : body
             
         };
-        await postSentMails({to, from, subject, body, date});
-        transporter.sendMail(mailOptions, (error, info) => {
+        transporter.sendMail(mailOptions, async (error, info) => {
             if (error) {
                 console.error('Error sending email:', error);
-                return res.status(500).json({
+                return res.status(400).json({
                     msg: 'Error sending email',
                     err: `${error}`
                 });
+            }else{
+                console.log('Message sent:', info.response);
+                await postSentMails({to, from, subject, body, date});
+                res.status(200).json({
+                    msg: 'Email sent successfully'
+                });
             }
-            console.log('Message sent:', info.response);
-            res.status(200).json({
-                msg: 'Email sent successfully'
-            });
+            
         });
+        
+        
         
         
     }catch(e){
