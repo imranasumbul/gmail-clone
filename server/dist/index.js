@@ -16,4 +16,6 @@ app.get("/", function (req, res) {
         msg: `You are connected to imrana's gmail clone's backend on render `
     });
 });
-app.listen(port);
+app.listen(port, function () {
+    console.log(`listening on port ${port}`);
+});

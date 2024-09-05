@@ -17,6 +17,7 @@ const getAllSentMails_1 = __importDefault(require("../db calls/getAllSentMails")
 const postSentMails_1 = __importDefault(require("../db calls/postSentMails"));
 const index_1 = __importDefault(require("../send-mail/index"));
 const getAllInbox_1 = __importDefault(require("../db calls/getAllInbox"));
+const deleteAll_1 = __importDefault(require("../db calls/deleteAll"));
 const userRouter = express_1.default.Router();
 userRouter.get("/sentemails", function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -36,6 +37,7 @@ userRouter.get("/sentemails", function (req, res) {
 userRouter.post("/send-mail", function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            yield (0, deleteAll_1.default)();
             const { to, from, subject, body, date } = req.body;
             const mailOptions = {
                 from,
@@ -43,25 +45,44 @@ userRouter.post("/send-mail", function (req, res) {
                 subject,
                 text: body
             };
-            index_1.default.sendMail(mailOptions, (error, info) => __awaiter(this, void 0, void 0, function* () {
-                if (error) {
-                    console.error('Error sending email:', error);
-                    return res.status(400).json({
-                        msg: 'Error sending email',
-                        err: `${error}`
-                    });
-                }
-                else {
-                    console.log('Message sent:', info.response);
-                    yield (0, postSentMails_1.default)({ to, from, subject, body, date });
-                    res.status(200).json({
-                        msg: 'Email sent successfully'
-                    });
-                }
-            }));
+            // Sending email
+            let mailSent = false;
+            const sendMailPromise = new Promise((resolve, reject) => {
+                index_1.default.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    else {
+                        resolve(info);
+                    }
+                });
+            });
+            try {
+                const info = yield sendMailPromise;
+                console.log('Email sent: ', info.response);
+                mailSent = true; // mark that the mail was successfully sent
+            }
+            catch (error) {
+                console.error('Error sending email:', error);
+                return res.status(400).json({
+                    msg: 'Error sending email',
+                    err: `${error}`
+                });
+            }
+            // Save email to DB if sending was successful
+            if (mailSent) {
+                yield (0, postSentMails_1.default)({ to, from, subject, body, date });
+                return res.status(200).json({
+                    msg: 'Email sent successfully'
+                });
+            }
         }
         catch (e) {
-            console.log(`Error ${e}`);
+            console.error(`Error: ${e}`);
+            return res.status(500).json({
+                msg: 'Internal server error',
+                err: `${e}`
+            });
         }
     });
 });
